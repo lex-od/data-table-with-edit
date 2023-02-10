@@ -1,0 +1,12 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: auto;
+  background-color: rgba(26, 32, 63, 0.14);
+  backdrop-filter: blur(8px);
+}
