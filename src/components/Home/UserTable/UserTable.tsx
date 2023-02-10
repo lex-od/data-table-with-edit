@@ -4,16 +4,23 @@ import css from "./UserTable.module.scss";
 import { UserTableHeader } from "./UserTableHeader/UserTableHeader";
 import { IGetUsersItem } from "services/api/types";
 import { UserTableItem } from "./UserTableItem/UserTableItem";
+import { TOnUserEditSubmit } from "./UserTableItem/UserTableItemEdit/UserTableItemEdit";
 
-export type TOnDeleteItem = (delId: number) => void;
+export type TOnUserDelete = (delId: number) => void;
 
 interface IUserTable {
   users: IGetUsersItem[] | null;
   loading: boolean;
-  onDeleteItem: TOnDeleteItem;
+  onUserDelete: TOnUserDelete;
+  onUserEditSubmit: TOnUserEditSubmit;
 }
 
-export const UserTable: FC<IUserTable> = ({ users, loading, onDeleteItem }) => {
+export const UserTable: FC<IUserTable> = ({
+  users,
+  loading,
+  onUserDelete,
+  onUserEditSubmit,
+}) => {
   return (
     <div>
       <UserTableHeader />
@@ -28,7 +35,8 @@ export const UserTable: FC<IUserTable> = ({ users, loading, onDeleteItem }) => {
             <UserTableItem
               key={user.id}
               user={user}
-              onDelete={() => onDeleteItem(user.id)}
+              onDelete={() => onUserDelete(user.id)}
+              onEditSubmit={onUserEditSubmit}
             />
           ))}
         </>

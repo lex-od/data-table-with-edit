@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import css from "./Home.module.scss";
 import { api } from "services";
 import { TGetUsersResponse } from "services/api/types";
-import { TOnDeleteItem, UserTable } from "./UserTable/UserTable";
+import { TOnUserDelete, UserTable } from "./UserTable/UserTable";
+import { TOnUserEditSubmit } from "./UserTable/UserTableItem/UserTableItemEdit/UserTableItemEdit";
 
 export const Home = () => {
   const [users, setUsers] = useState<TGetUsersResponse | null>(null);
@@ -20,7 +21,7 @@ export const Home = () => {
       });
   }, []);
 
-  const handleDeleteItem: TOnDeleteItem = (delId) => {
+  const handleUserDelete: TOnUserDelete = (delId) => {
     setUsers((prevUsers) => {
       if (!prevUsers) {
         return null;
@@ -29,12 +30,24 @@ export const Home = () => {
     });
   };
 
+  const handleUserEditSubmit: TOnUserEditSubmit = (newUser) => {
+    setUsers((prevUsers) => {
+      if (!prevUsers) {
+        return null;
+      }
+      return prevUsers.map((user) => {
+        return user.id === newUser.id ? newUser : user;
+      });
+    });
+  };
+
   return (
     <div className={css.home}>
       <UserTable
         users={users}
         loading={loading}
-        onDeleteItem={handleDeleteItem}
+        onUserDelete={handleUserDelete}
+        onUserEditSubmit={handleUserEditSubmit}
       />
     </div>
   );
