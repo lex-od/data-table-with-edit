@@ -3,10 +3,10 @@ import css from "./UserTableHeader.module.scss";
 export const UserTableHeader = () => {
   return (
     <div className={css.userTableHeader}>
-      <div>Name</div>
-      <div>Surname</div>
-      <div>Email</div>
-      <div className={css.thRight}>Actions</div>
+      <p>Name</p>
+      <p>Surname</p>
+      <p>Email</p>
+      <p className={css.thRight}>Actions</p>
     </div>
   );
 };
