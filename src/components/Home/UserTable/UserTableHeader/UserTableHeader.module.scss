@@ -1,0 +1,9 @@
+.userTableHeader {
+  display: grid;
+  grid-template-columns: 330px 330px 330px 1fr;
+  justify-items: left right;
+}
+
+.thRight {
+  justify-self: end;
+}

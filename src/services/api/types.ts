@@ -5,6 +5,7 @@ export interface IApi {
 // 📌 getUsers
 
 export interface IGetUsersItem {
+  id: number;
   name: string;
   surname: string;
   email: string;
