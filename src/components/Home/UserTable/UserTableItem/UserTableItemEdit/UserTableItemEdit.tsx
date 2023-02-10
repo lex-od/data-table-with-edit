@@ -2,33 +2,51 @@ import { FC, useState } from "react";
 
 import css from "./UserTableItemEdit.module.scss";
 import { IGetUsersItem } from "services/api/types";
+import { validateString } from "utils/validations";
 
 export type TOnUserEditSubmit = (newUser: IGetUsersItem) => void;
 
 interface IUserTableItemEdit {
   user: IGetUsersItem;
-  onEditSubmit: TOnUserEditSubmit;
+  onSubmit: TOnUserEditSubmit;
   onCancel: () => void;
 }
 
 export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
   user,
-  onEditSubmit,
+  onSubmit,
   onCancel,
 }) => {
-  const [name, setName] = useState(user.name);
-  const [surname, setSurname] = useState(user.surname);
-  const [email, setEmail] = useState(user.email);
+  const [values, setValues] = useState(user);
+  const [submitTouched, setSubmitTouched] = useState(false);
+
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit(values);
+  };
 
   return (
-    <form>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
-      <input value={surname} onChange={(e) => setSurname(e.target.value)} />
-      <input value={email} onChange={(e) => setEmail(e.target.value)} />
+    <form className={css.userTableItemEdit} onSubmit={handleSubmit}>
+      <input name="name" value={values.name} onChange={handleChangeValue} />
+      <input
+        name="surname"
+        value={values.surname}
+        onChange={handleChangeValue}
+      />
+      <input name="email" value={values.email} onChange={handleChangeValue} />
 
-      <div>
+      <div className={css.tdRight}>
         <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
       </div>
     </form>
   );

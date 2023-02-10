@@ -19,6 +19,11 @@ export const UserTableItem: FC<IUserTableItem> = ({
 }) => {
   const [isEdit, setIsEdit] = useState(false);
 
+  const handleEditSubmit: TOnUserEditSubmit = (newUser) => {
+    setIsEdit(false);
+    onEditSubmit(newUser);
+  };
+
   const toggleEdit = () => {
     setIsEdit((prevIsEdit) => !prevIsEdit);
   };
@@ -26,7 +31,7 @@ export const UserTableItem: FC<IUserTableItem> = ({
   return isEdit ? (
     <UserTableItemEdit
       user={user}
-      onEditSubmit={onEditSubmit}
+      onSubmit={handleEditSubmit}
       onCancel={toggleEdit}
     />
   ) : (
