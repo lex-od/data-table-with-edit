@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Vasya",
+    "surname": "Pupkin",
+    "email": "vpupkin@mail.com"
+  },
+  {
+    "id": 2,
+    "name": "Danya",
+    "surname": "Shapovalov",
+    "email": "dshapovalov@mail.com"
+  },
+  {
+    "id": 3,
+    "name": "Vadim",
+    "surname": "Balochkin",
+    "email": "vbalochkin@mail.com"
+  }
+]
