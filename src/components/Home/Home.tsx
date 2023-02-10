@@ -6,6 +6,7 @@ import { TGetUsersResponse } from "services/api/types";
 import { TOnUserDelete, UserTable } from "./UserTable/UserTable";
 import { TOnUserEditSubmit } from "./UserTable/UserTableItem/UserTableItemEdit/UserTableItemEdit";
 import { Modal } from "components/Modal/Modal";
+import { AddUserForm } from "./AddUserForm/AddUserForm";
 
 export const Home = () => {
   const [users, setUsers] = useState<TGetUsersResponse | null>(null);
@@ -63,9 +64,7 @@ export const Home = () => {
       </div>
 
       <Modal isOpen={isAddModal} onClose={handleToggleAddModal}>
-        <div style={{ backgroundColor: "tomato", width: 200, height: 350 }}>
-          hello
-        </div>
+        <AddUserForm onSubmit={() => null} onCancel={handleToggleAddModal} />
       </Modal>
     </div>
   );
