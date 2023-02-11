@@ -6,7 +6,7 @@ import { IGetUsersItem } from "services/api/types";
 import { UserTableItem } from "./UserTableItem/UserTableItem";
 import { TOnUserEditSubmit } from "./UserTableItem/UserTableItemEdit/UserTableItemEdit";
 
-export type TOnUserDelete = (delId: number) => void;
+export type TOnUserDelete = (delId: string) => void;
 
 interface IUserTable {
   users: IGetUsersItem[] | null;

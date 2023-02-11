@@ -45,6 +45,8 @@ export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
   };
 
   return (
+    // Таблицу сделана несемантично (без <table>, <tr>, <td>), т. к.
+    // эту форму (тег <form>) нельзя вкладывать в <tr>
     <form className={css.userTableItemEdit} onSubmit={handleSubmit}>
       <div>
         <input
