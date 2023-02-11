@@ -49,9 +49,10 @@ export const AddUserForm: FC<IAddUserForm> = ({ onSubmit, onCancel }) => {
 
   return (
     <form className={css.addUserForm} onSubmit={handleSubmit}>
-      <h2>Add user</h2>
+      <h2 className={css.title}>Add user</h2>
 
-      <div>
+      <label className={css.label}>
+        <span>Name</span>
         <input
           name="name"
           value={values.name}
@@ -59,9 +60,10 @@ export const AddUserForm: FC<IAddUserForm> = ({ onSubmit, onCancel }) => {
           autoComplete="off"
         />
         <ErrorMessage touched={touched} error={errors.name} />
-      </div>
+      </label>
 
-      <div>
+      <label className={css.label}>
+        <span>Surname</span>
         <input
           name="surname"
           value={values.surname}
@@ -69,9 +71,10 @@ export const AddUserForm: FC<IAddUserForm> = ({ onSubmit, onCancel }) => {
           autoComplete="off"
         />
         <ErrorMessage touched={touched} error={errors.surname} />
-      </div>
+      </label>
 
-      <div>
+      <label className={css.label}>
+        <span>Email</span>
         <input
           name="email"
           value={values.email}
@@ -79,11 +82,13 @@ export const AddUserForm: FC<IAddUserForm> = ({ onSubmit, onCancel }) => {
           autoComplete="off"
         />
         <ErrorMessage touched={touched} error={errors.email} />
-      </div>
+      </label>
 
       <div className={css.submitGroup}>
-        <button type="submit">Save</button>
-        <button type="button" onClick={onCancel}>
+        <button type="submit" className={css.submitBtn}>
+          Save
+        </button>
+        <button type="button" onClick={onCancel} className={css.cancelBtn}>
           Cancel
         </button>
       </div>

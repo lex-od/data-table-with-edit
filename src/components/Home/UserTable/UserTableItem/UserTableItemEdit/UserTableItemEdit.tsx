@@ -45,10 +45,8 @@ export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
   };
 
   return (
-    // Таблицу сделана несемантично (без <table>, <tr>, <td>), т. к.
-    // эту форму (тег <form>) нельзя вкладывать в <tr>
-    <form className={css.userTableItemEdit} onSubmit={handleSubmit}>
-      <div>
+    <form className={css.tr} onSubmit={handleSubmit}>
+      <div className={css.td}>
         <input
           name="name"
           value={values.name}
@@ -58,7 +56,7 @@ export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
         <ErrorMessage touched={touched} error={errors.name} />
       </div>
 
-      <div>
+      <div className={css.td}>
         <input
           name="surname"
           value={values.surname}
@@ -68,7 +66,7 @@ export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
         <ErrorMessage touched={touched} error={errors.surname} />
       </div>
 
-      <div>
+      <div className={css.td}>
         <input
           name="email"
           value={values.email}
@@ -79,8 +77,10 @@ export const UserTableItemEdit: FC<IUserTableItemEdit> = ({
       </div>
 
       <div className={css.tdRight}>
-        <button type="submit">Save</button>
-        <button type="button" onClick={onCancel}>
+        <button type="submit" className={css.submitBtn}>
+          Save
+        </button>
+        <button type="button" onClick={onCancel} className={css.cancelBtn}>
           Cancel
         </button>
       </div>

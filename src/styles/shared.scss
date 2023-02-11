@@ -1,0 +1,55 @@
+// 📌 Buttons
+
+%primary-btn-base {
+  color: #fff;
+  font-weight: 500;
+
+  background-color: #2196f3;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+%primary-btn {
+  @extend %primary-btn-base;
+
+  min-width: 110px;
+  padding: 8px 25px;
+  font-size: 18px;
+}
+
+%primary-btn-small {
+  @extend %primary-btn-base;
+
+  min-width: 65px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+%secondary-btn-base {
+  color: #5a5a5a;
+  font-weight: 500;
+
+  background-color: #f5f4fa;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+%secondary-btn {
+  @extend %secondary-btn-base;
+
+  min-width: 110px;
+  padding: 8px 25px;
+  font-size: 18px;
+}
+
+%secondary-btn-small {
+  @extend %secondary-btn-base;
+
+  min-width: 65px;
+  padding: 6px 10px;
+  font-size: 14px;
+}

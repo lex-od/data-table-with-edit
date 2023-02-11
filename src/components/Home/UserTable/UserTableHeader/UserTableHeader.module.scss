@@ -1,8 +1,21 @@
-.userTableHeader {
+.tr {
   display: grid;
   grid-template-columns: 330px 330px 330px 1fr;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.th {
+  padding: 10px;
+
+  > p {
+    font-weight: 700;
+  }
 }
 
 .thRight {
-  justify-self: end;
+  @extend .th;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }

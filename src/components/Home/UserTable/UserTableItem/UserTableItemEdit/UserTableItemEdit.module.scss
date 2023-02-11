@@ -1,8 +1,36 @@
-.userTableItemEdit {
+@import "styles/shared.scss";
+
+.tr {
   display: grid;
   grid-template-columns: 330px 330px 330px 1fr;
 }
 
+.td {
+  padding: 10px;
+
+  > input {
+    width: 100%;
+    padding: 3px;
+
+    border: 1px solid #5a5a5a;
+    border-radius: 3px;
+  }
+}
+
 .tdRight {
-  justify-self: end;
+  @extend .td;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.submitBtn {
+  @extend %primary-btn-small;
+
+  margin-right: 10px;
+}
+
+.cancelBtn {
+  @extend %secondary-btn-small;
 }

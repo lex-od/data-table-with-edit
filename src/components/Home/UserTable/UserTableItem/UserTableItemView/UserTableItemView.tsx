@@ -15,14 +15,26 @@ export const UserTableItemView: FC<IUserTableItemView> = ({
   onDelete,
 }) => {
   return (
-    <div className={css.userTableItemView}>
-      <p>{user.name}</p>
-      <p>{user.surname}</p>
-      <p>{user.email}</p>
+    <div className={css.tr}>
+      <div className={css.td}>
+        <p>{user.name}</p>
+      </div>
+
+      <div className={css.td}>
+        <p>{user.surname}</p>
+      </div>
+
+      <div className={css.td}>
+        <p>{user.email}</p>
+      </div>
 
       <div className={css.tdRight}>
-        <button onClick={onEdit}>Edit</button>
-        <button onClick={onDelete}>Delete</button>
+        <button onClick={onEdit} className={css.submitBtn}>
+          Edit
+        </button>
+        <button onClick={onDelete} className={css.cancelBtn}>
+          Delete
+        </button>
       </div>
     </div>
   );

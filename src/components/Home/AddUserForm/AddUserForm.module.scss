@@ -1,7 +1,50 @@
+@import "styles/shared.scss";
+
 .addUserForm {
-  width: 300px;
+  width: 380px;
+  padding: 30px;
+
   background-color: #fff;
+  border-radius: 5px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  > span {
+    margin-bottom: 5px;
+    color: #5a5a5a;
+  }
+
+  > input {
+    padding: 10px;
+    font-size: 20px;
+
+    border: 1px solid #5a5a5a;
+    border-radius: 3px;
+  }
 }
 
 .submitGroup {
+  margin-top: 30px;
+}
+
+.submitBtn {
+  @extend %primary-btn;
+
+  margin-right: 15px;
+}
+
+.cancelBtn {
+  @extend %secondary-btn;
 }
