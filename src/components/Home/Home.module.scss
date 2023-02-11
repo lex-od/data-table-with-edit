@@ -1,7 +1,19 @@
+@import "styles/shared.scss";
+
 .home {
-  padding: 15px 0;
+  padding: 30px 0;
+}
+
+.title {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .actionsGroup {
+  margin-top: 30px;
   text-align: center;
+}
+
+.addUserBtn {
+  @extend %primary-btn;
 }

@@ -67,6 +67,8 @@ export const Home = () => {
 
   return (
     <div className={css.home}>
+      <h1 className={css.title}>User management</h1>
+
       <UserTable
         users={users}
         loading={loading}
@@ -79,6 +81,7 @@ export const Home = () => {
           type="button"
           onClick={toggleAddModal}
           disabled={loading || !users}
+          className={css.addUserBtn}
         >
           Add new user
         </button>
